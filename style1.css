@@ -1,0 +1,167 @@
+/* =========================
+      PREMIUM BUTTON FIXED
+========================= */
+
+a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 180px;
+    height: 52px;
+    padding: 0 30px;
+    margin: 15px 0 30px;
+
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .5px;
+
+    border: 2px solid rgba(255, 255, 255, .15);
+    /* Fixed Border */
+    border-radius: 50px;
+    overflow: hidden;
+    isolation: isolate;
+
+    background: linear-gradient(-45deg, #00c6ff, #0072ff, #00e5ff, #0099ff);
+    background-size: 300% 300%;
+
+    animation:
+        gradientMove 6s ease infinite,
+        floatBtn 3s ease-in-out infinite;
+
+    box-shadow:
+        0 10px 25px rgba(0, 114, 255, .35),
+        inset 0 1px 1px rgba(255, 255, 255, .2);
+
+    transition:
+        transform .3s,
+        box-shadow .3s,
+        border-color .3s;
+}
+
+/* Hover */
+
+a:hover {
+    border-color: #7dd3fc;
+    transform: translateY(-4px);
+    box-shadow:
+        0 0 20px rgba(0, 212, 255, .6),
+        0 0 45px rgba(0, 212, 255, .35);
+}
+
+/* Active */
+
+a:active {
+    transform: scale(.97);
+}
+
+/* Shine */
+
+a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: -130%;
+    width: 45%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .75),
+            transparent);
+    transform: skewX(-25deg);
+    z-index: 1;
+}
+
+a:hover::before {
+    animation: shine .8s linear;
+}
+
+/* Text always above effects */
+
+a {
+    z-index: 0;
+}
+
+a span {
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+
+    text-shadow:
+        0 0 3px #32de99,
+        0 0 8px #2690d6,
+        0 0 18px #b234c3,
+        0 0 35px #8bde2c;
+
+    animation: neon 2s infinite alternate;
+}
+
+@keyframes neon {
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.4);
+    }
+
+}
+
+h2 {
+    position: relative;
+    display: inline-block;
+    padding: 12px 30px;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    background: rgba(20, 20, 20, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* Animated glowing border */
+h2::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(90deg,
+            transparent,
+            #00e5ff,
+            #7b61ff,
+            #00e5ff,
+            transparent);
+    background-size: 300% 100%;
+    animation: edgeGlow 4s linear infinite;
+    z-index: -2;
+    filter: blur(8px);
+}
+
+/* Inner background */
+h2::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: inherit;
+    background: #111;
+    z-index: -1;
+}
+
+@keyframes edgeGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 300% 50%;
+    }
+}
